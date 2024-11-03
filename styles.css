@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Azo Sans Regular', Arial, sans-serif; /* Add Azo Sans Regular font */
-    background-color: #EEEEF3; /* Off-white background */
+    background-color: #FAF5ED; /* Off-white background */
     color: #7A5750; /* Brown text color */
 }
 
@@ -138,4 +138,184 @@ header {
     position: absolute; /* Position the logo in the header */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Adjust to center */
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    justify-items: center; /* Center the items horizontally */
+    margin: 20px auto; /* Center the gallery on the page */
+    max-width: 900px; /* Set a max width for the gallery */
+}
+
+.placeholder img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: add some rounding to the corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add some shadow */
+}
+
+.home-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    justify-items: center; /* Center the items horizontally */
+    margin: 20px auto; /* Center the gallery on the page */
+    max-width: 600px; /* Set a max width for the home gallery */
+}
+
+.home-placeholder img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: add some rounding to the corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add some shadow */
+}
+
+.content-section {
+    margin: 0 auto; /* Center the section horizontally */
+    padding: 20px;
+    max-width: 800px; /* Set a maximum width for the text box */
+    text-align: center; /* Center the text inside the box */
+}
+
+h1, h2, p {
+    margin-bottom: 20px; /* Add space between elements */
+}
+
+.content-section {
+    margin-left: 270px; /* Ensure this is aligned with your sidebar */
+    padding: 20px;
+    text-align: center; /* Center text within the section */
+}
+
+.portfolio-title {
+    font-size: 36px; /* Adjust as needed for prominence */
+    color: var(--brown); /* Use your color variable */
+    margin-bottom: 10px; /* Space below the title */
+}
+
+.portfolio-text {
+    font-size: 18px; /* Set the size for the paragraph text */
+    color: var(--brown); /* Match the text color */
+    margin-bottom: 20px; /* Space between text and gallery */
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for the gallery */
+    gap: 15px; /* Space between images */
+    margin-top: 20px; /* Space above the gallery */
+}
+
+.placeholder {
+    width: 100%; /* Ensures it takes full width of the grid */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Clips content that overflows */
+}
+
+.image-portfolio {
+    width: 100%; /* Ensures image fits within the placeholder */
+    height: auto; /* Maintains aspect ratio */
+}
+
+.content-section {
+    margin-left: 270px; /* Align with your sidebar */
+    padding: 20px;
+}
+
+.portfolio-title {
+    font-size: 36px; /* Set title size */
+    color: var(--brown); /* Assuming you're using the variable */
+    margin-bottom: 10px; /* Space below title */
+}
+
+.portfolio-text {
+    font-size: 18px; /* Set text size */
+    color: var(--brown); /* Assuming you're using the variable */
+    margin-bottom: 20px; /* Space below text */
+}
+
+.about-section, .contact-section {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    max-width: 800px; /* Limit the width of the sections */
+    margin: 20px auto; /* Center the sections on the page */
+    padding: 20px;
+    background-color: #FFFFFF; /* Optional: White background for sections */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Box shadow */
+}
+
+.about-content, .contact-content {
+    flex: 1; /* Allow the text to take remaining space */
+    padding-right: 20px; /* Space between text and image */
+}
+
+.about-image, .contact-image {
+    flex: 0 0 300px; /* Fixed width for the images */
+}
+
+.image-contact {
+    width: 400px; /* Set the width */
+    height: 400px; /* Set the height */
+    object-fit: cover; /* Crop and maintain aspect ratio */
+    border-radius: 8px; /* Optional: Rounded corners */
+}
+
+.contact-form {
+    flex: 1; /* Allow the form to take available space */
+    margin-right: 20px; /* Space between the form and image */
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+    gap: 12px; /* Space between form elements */
+}
+
+.contact-form label {
+    font-size: 16px; /* Adjust font size for labels */
+    color: var(--brown); /* Use your brown color */
+    margin-bottom: 5px; /* Space below labels */
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px; /* Add padding inside inputs and textarea */
+    border: 1px solid #7A5750; /* Brown border for inputs */
+    border-radius: 10px; /* Rounded corners for inputs */
+    font-size: 16px; /* Font size for input text */
+    width: 100%; /* Make inputs full width */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+.contact-form button {
+    background-color: var(--pink); /* Light pink background for button */
+    color: var(--brown); /* Brown text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for button */
+    font-size: 16px; /* Font size for button text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.contact-form button:hover {
+    background-color: #E1B2B3; /* Darken pink on hover */
+}
+
+.about-container {
+    display: flex; /* Use Flexbox for layout */
+    align-items: flex-start; /* Align items at the start of the container */
+}
+
+.side-image {
+    width: 300px; /* Set a width for the image */
+    height: auto; /* Maintain the aspect ratio */
+    margin-right: 20px; /* Space between the image and text */
+}
+
+.text-box {
+    flex: 1; /* Allow the text box to take remaining space */
 }
