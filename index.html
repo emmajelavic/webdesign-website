@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <span class="hamburger" onclick="openNav()">☰</span>
+        <img src="images/personallogo.png" alt="Personal Logo" class="logo">
+        <h1>Home</h1>
+    </header>
+
+    <!-- Side navigation -->
+    <div id="mySidenav" class="side-nav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+        <h2>Status</h2>
+        <div class="status-bar">Commissions: Open</div>
+        <div class="status-bar">Currently: VERY Busy</div>
+        <div class="status-bar">Inquiries: Open</div>
+    </div>
+
+    <div class="content">
+        <section id="home" class="content-section">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Currently a WORK IN PROGRESS!!</p>
+        </section>
+    </div>
+
+    <footer>
+        © Emma Jelavic 2024
+    </footer>
+
+    <script>
+        /* Function to open the side navigation */
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        /* Function to close the side navigation */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+</body>
+</html>

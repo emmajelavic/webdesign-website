@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <span class="hamburger" onclick="openNav()">☰</span>
+        <h1>About Me</h1>
+    </header>
+
+    <!-- Side navigation -->
+    <div id="mySidenav" class="side-nav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+        <h2>Status</h2>
+        <div class="status-bar">Commissions: Open</div>
+        <div class="status-bar">Currently Busy</div>
+        <div class="status-bar">Questions: Open</div>
+    </div>
+
+    <div class="content">
+        <section class="content-section">
+            <h1>About Me</h1>
+            <p>Hello! My name is Emma Jelavic.
+
+                I'm a Canadian-Croatian Graphic Designer and Digital Illustrator. I'm currently studying New Media at Toronto Metropolitan University. I am passionate about branding, character design and 3D landscapes. I am able to adapt different artistic techniques and mediums according to the needs of a project.</p>
+            <p>Let's work together!</p>
+            <h1>Expertise</h1>
+            <p>Digital / Traditional Illustration - Character Design
+                UI Design - 3D modelling - Layout Design</p>
+                <h1>Program Knowledge</h1>
+            <p>Affinity Designer 2
+                Adobe After Effects 
+                Adobe Photoshop
+                Adobe Illustrator
+                Figma & Canva 
+                Procreate & Clip Studio Paint
+                OBS Studio
+                MS Office
+                Creative Content Writing</p>
+        </section>
+    </div>
+
+    <footer>
+        © Emma Jelavic 2024
+    </footer>
+
+    <script>
+        /* Function to open the side navigation */
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        /* Function to close the side navigation */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <span class="hamburger" onclick="openNav()">☰</span>
+        <h1>Contact</h1>
+    </header>
+
+    <!-- Side navigation -->
+    <div id="mySidenav" class="side-nav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+        <h2>Status</h2>
+        <div class="status-bar">Commissions: Open</div>
+        <div class="status-bar">Currently Busy</div>
+        <div class="status-bar">Questions: Open</div>
+    </div>
+
+    <div class="content">
+        <section class="content-section">
+            <h1>Contact</h1>
+            <p>Let's work Together!</p>
+            <p>Email: emmainfinity1500@gmail.com</p>
+        </section>
+    </div>
+
+    <footer>
+        © Emma Jelavic 2024
+    </footer>
+
+    <script>
+        /* Function to open the side navigation */
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        /* Function to close the side navigation */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+</body>
+</html>
