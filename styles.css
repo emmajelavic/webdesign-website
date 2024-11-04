@@ -114,13 +114,17 @@ footer {
     align-items: center;
 }
 
-.status-bar::before {
+.status-bar::before { 
     content: '';
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: green; /* Change to red or green based on status */
+    background-color: green; /* Default color */
     margin-right: 10px;
+}
+
+.status-bar.busy::before {
+    background-color: red; /* Change to red for the busy status */
 }
 
 header {
@@ -319,3 +323,4 @@ h1, h2, p {
 .text-box {
     flex: 1; /* Allow the text box to take remaining space */
 }
+
