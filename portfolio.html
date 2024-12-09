@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Emma Jelavic Art | Portfolio</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
-
+    <div class="parallax-container">
     <header>
         <span class="hamburger" onclick="openNav()">☰</span>
+        <img src="images/personallogo.png" alt="Personal Logo" class="logo">
         <h1>Portfolio</h1>
     </header>
 
@@ -20,31 +26,128 @@
         <a href="about.html">About Me</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="contact.html">Contact</a>
+
+        <div id="search-bar">
+            <form id="searchForm">
+                <input type="text" name="q" placeholder="Search for a page..." aria-label="Search" required />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+<!-- Footer with the link -->
+<footer class="nav-footer">
+    <a href="https://stock.adobe.com/ca/images/Tranquil-Silesian-landscape-with-flower-covered-hills-and-a-blue-sky-%3A-Tranqui/609964976" target="_blank" aria-label="Background Image provided by Adobe">
+        <p>Background Image provided by Adobe ♡</p>
+    </a>
+</footer>
+
+    </div>
+
+    <!-- Status Section -->
+    <div class="status-section">
         <h2>Status</h2>
-        <div class="status-bar">Commissions: Open</div>
-        <div class="status-bar busy">Currently: VERY Busy</div>
-        <div class="status-bar">Inquiries: Open</div>
+        <div class="status-bar">
+            <span class="status-indicator open"></span> Commissions: Open
+        </div>
+        <div class="status-bar">
+            <span class="status-indicator busy"></span> Currently: VERY Busy
+        </div>
+        <div class="status-bar">
+            <span class="status-indicator open"></span> Inquiries: Open
+        </div>
+
+        <div class="status-divider"></div>
+
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/emma-jelavic/" target="_blank" aria-label="LinkedIn">
+                <i class="fa fa-linkedin-square"></i>
+            </a>
+            <a href="https://emmajelavic.itch.io/" target="_blank" aria-label="Itch.io">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="itchio-icon">
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3.5h-.52c-.42 0-.8.22-1.02.57L13.1 8.38a1.2 1.2 0 0 1-1.03.57H3.93a1.2 1.2 0 0 1-1.02-.57L.52 6.07A1.2 1.2 0 0 0 .52 6H0V2zm0 4.9l1.92 2.3A2.5 2.5 0 0 0 3.93 9.5h8.15a2.5 2.5 0 0 0 2-1.03L16 6.9V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6.9z"/>
+                </svg>
+            </a>
+        </div>
+
     </div>
 
     <div class="content">
-        <section class="content-section">
-            <h1 class="portfolio-title">PORTFOLIO</h1>
-            <p class="portfolio-text">Explore my projects below. I specialize in a variety of mediums and enjoy working with new tools!</p>
+        <section id="home" class="content-section">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Welcome to my portfolio! Here, you'll find a collection of my creative bodies of work, from graphic design, illustration to web development, each medium reflects my passion for creative storytelling and design. Click on any piece to view it in full size!</p>
+            <p>Some sections are currently undergoing changes or have currently progressing projects, or in other words, work in progress.</p>
         </section>
-    </div>
-
-    <div class="gallery">
-        <div class="placeholder"><img src="images/portfolio.jpg" alt="Placeholder Image 1" class="image-portfolio"></div>
-        <div class="placeholder"><img src="images/portfolio.jpg" alt="Placeholder Image 2" class="image-portfolio"></div>
-        <div class="placeholder"><img src="images/portfolio.jpg" alt="Placeholder Image 3" class="image-portfolio"></div>
-        <div class="placeholder"><img src="images/portfolio.jpg" alt="Placeholder Image 4" class="image-portfolio"></div>
-        <div class="placeholder"><img src="images/portfolio.jpg" alt="Placeholder Image 5" class="image-portfolio"></div>
-        <div class="placeholder"><img src="images/portfolio.jpg" alt="Placeholder Image 6" class="image-portfolio"></div>
+        <div class="gallery">
+            <!-- Image container 1 -->
+            <div class="placeholder" data-description="An anime styled illustration of a short haired 'neko' or 'nekomimi' girl. The piece is titled 'paws out!'">
+                <img src="images/illustration.png" alt="Illustration of Cat Girl">
+                <div class="overlay">
+                    <p class="overlay-text">Illustration</p>
+                </div>
+            </div>
+    
+            <!-- Image container 2 -->
+            <div class="placeholder" id="image-2" data-description="A Video Game demo I recently edited for a student demo project developed by me. The game is titled 'Plato's Cave.'" data-has-button="true" data-video-url="https://youtu.be/DvzgL5HpoZ8">
+                <img src="images/videoediting.png" alt="videoediting">
+                <div class="overlay">
+                    <p class="overlay-text">Video Editing</p>
+                </div>
+            </div>
+    
+            <!-- Image container 3 -->
+            <div class="placeholder" data-description="A colourful and dynamic logo design for a Underground Indie-Rock Photographer, Erlisa Muharremi Photography.">
+                <img src="images/graphicdesign.png" alt="Portfolio Image 3">
+                <div class="overlay">
+                    <p class="overlay-text">Graphic Design</p>
+                </div>
+            </div>
+    
+            <!-- Image container 4 -->
+            <div class="placeholder" data-description="This is an photograph of a illuminated fish tank at the Ripley's aquarium in Toronto. The piece displays a wide diaspora of fish species and environment friendly aquatic flora to naturally filter and feed the tanks inhabitants.">
+                <img src="images/photograph.png" alt="Photograph of Nature">
+                <div class="overlay">
+                    <p class="overlay-text">Photography</p>
+                </div>
+            </div>
+    
+            <!-- Image container 5 -->
+            <div class="placeholder" id="image-5" data-description="Tangible Art piece titled 'A Social Butterfly'. Made with Arduino coding and necessary physical components. The piece is a commentary on misnomers and how human behaviour is determined by their experiences, environment and influence." data-has-button="true"> <!-- Unique Identifier -->
+                <img src="images/tangibleart.png" alt="Portfolio Image 5">
+                <div class="overlay">
+                    <p class="overlay-text">Tangible Art</p>
+                </div>
+            </div>
+    
+            <!-- Image container 6 -->
+            <div class="placeholder" data-description="New mediums and projects are currently being developed for showcasing.">
+                <img src="images/temp.jpg" alt="Coming Soon. . .">
+                <div class="overlay">
+                    <p class="overlay-text">Coming Soon. . .</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
         © Emma Jelavic 2024
     </footer>
+
+    <div id="modal" class="modal">
+        <span class="close" id="modal-close">&times;</span>
+        <div class="modal-content-container">
+            <!-- Image in the modal -->
+            <img id="modal-image" class="modal-content" src="" alt="">
+            <!-- Text container with overlay text and description -->
+            <div id="modal-text-container" class="modal-text-container">
+                <div id="modal-text" class="modal-text"></div>
+                <div id="modal-description" class="modal-description"></div> <!-- Description -->
+                <!-- Static button, visibility controlled dynamically -->
+                <button class="video-button" id="video-button" style="display: none;">Watch Documentation</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
 
     <script>
         /* Function to open the side navigation */
@@ -56,6 +159,33 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
+
+        // Handle the search form submission
+        document.getElementById("searchForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting and changing the URL
+
+            // Get the query input
+            const query = new FormData(event.target).get("q").toLowerCase();
+
+            // Define the pages for search
+            const pages = [
+                { title: "home", url: "index.html" },
+                { title: "about", url: "about.html" },
+                { title: "portfolio", url: "portfolio.html" },
+                { title: "contact", url: "contact.html" }
+            ];
+
+            // Find the page based on the query
+            const result = pages.find(page => page.title === query);
+
+            if (result) {
+                // If a match is found, redirect to the page
+                window.location.href = result.url;
+            } else {
+                // If no match is found, alert the user
+                alert("Page not found. Please check your input.");
+            }
+        });
     </script>
 
 </body>
