@@ -5,10 +5,43 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Azo Sans';
+    src: url('fonts/AzoSans-Regular.woff2') format('woff2'),
+         url('fonts/AzoSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Azo Sans';
+    src: url('fonts/AzoSans-Medium.woff2') format('woff2'),
+         url('fonts/AzoSans-Medium.woff') format('woff');
+    font-weight: 500; /* or whatever the medium weight is */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Azo Sans';
+    src: url('fonts/AzoSans-MediumItalic.woff2') format('woff2'),
+         url('fonts/AzoSans-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Body text uses Roboto */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Azo Sans', sans-serif; /* Headings use Azo Sans */
+}
+
 body {
     font-family: 'Azo Sans Regular', Arial, sans-serif; /* Add Azo Sans Regular font */
-    background-color: #FAF5ED; /* Off-white background */
+    background-color: #E3C7C8; /* Off-white background */
     color: #7A5750; /* Brown text color */
+    padding: 5px;
 }
 
 /* Color Palette */
@@ -102,37 +135,12 @@ footer {
     font-size: 14px;
 }
 
-/* Status Bar Styling */
-.status-bar {
-    background-color: var(--pink);
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    color: var(--brown);
-    font-weight: bold;
-    display: flex; /* Use flexbox to align circle and text */
-    align-items: center;
-}
-
-.status-bar::before { 
-    content: '';
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: green; /* Default color */
-    margin-right: 10px;
-}
-
-.status-bar.busy::before {
-    background-color: red; /* Change to red for the busy status */
-}
-
 header {
     display: flex;
     justify-content: space-between; /* Space between elements */
     align-items: center; /* Center vertically */
     position: relative; /* Ensure positioning for the logo */
-    padding: 10px; /* Adjust padding as needed */
+    padding: 15px; /* Adjust padding as needed */
 }
 
 .logo {
@@ -146,18 +154,35 @@ header {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    justify-items: center; /* Center the items horizontally */
-    margin: 20px auto; /* Center the gallery on the page */
-    max-width: 900px; /* Set a max width for the gallery */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between items */
+    justify-items: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: 0 auto; /* Center the entire gallery block */
+    max-width: 900px; /* Limit the gallery width */
+    padding: 20px;
+}
+
+.placeholder {
+    text-align: center; /* Center text within placeholder */
+    margin: 0 auto; /* Center the container itself */
+    width: 100%; /* Full width within the grid */
+    max-width: 300px; /* Limit the container width */
 }
 
 .placeholder img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px; /* Optional: add some rounding to the corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add some shadow */
+    display: block; /* Ensures the image is treated as a block element */
+    width: 100%; /* Responsive scaling */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.content {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .home-gallery {
@@ -205,40 +230,58 @@ h1, h2, p {
     margin-bottom: 20px; /* Space between text and gallery */
 }
 
+/* Gallery Container */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for the gallery */
+    display: flex;
+    flex-wrap: wrap; /* Allow images to wrap if they exceed the width */
+    justify-content: space-between; /* Add spacing between images */
     gap: 15px; /* Space between images */
-    margin-top: 20px; /* Space above the gallery */
 }
 
+/* Placeholder for Images */
 .placeholder {
-    width: 100%; /* Ensures it takes full width of the grid */
-    border-radius: 8px; /* Rounded corners */
-    overflow: hidden; /* Clips content that overflows */
+    width: 30%; /* Adjust as needed for your layout */
+    aspect-ratio: 1 / 1.3; /* Enforces a square shape */
+    overflow: hidden; /* Ensures the image stays within the container */
+    position: relative; /* For the overlay effect */
+    border-radius: 10px; /* Optional: Rounded corners for styling */
+    background: #f0f0f0; /* Placeholder background for loading states */
 }
 
-.image-portfolio {
-    width: 100%; /* Ensures image fits within the placeholder */
-    height: auto; /* Maintains aspect ratio */
+/* Image Styling */
+.placeholder img {
+    width: 100%; /* Ensure the image fills the container */
+    height: 100%; /* Ensure consistent height */
+    object-fit: cover; /* Ensures the image scales without distortion */
+    object-position: center; /* Centers the image */
+    display: block; /* Removes inline spacing artifacts */
 }
 
-.content-section {
-    margin-left: 270px; /* Align with your sidebar */
-    padding: 20px;
+/* Overlay Effect */
+.placeholder .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.portfolio-title {
-    font-size: 36px; /* Set title size */
-    color: var(--brown); /* Assuming you're using the variable */
-    margin-bottom: 10px; /* Space below title */
+.placeholder:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
 }
 
-.portfolio-text {
-    font-size: 18px; /* Set text size */
-    color: var(--brown); /* Assuming you're using the variable */
-    margin-bottom: 20px; /* Space below text */
+.overlay-text {
+    color: white;
+    font-size: 18px;
+    text-align: center;
 }
+
 
 .about-section, .contact-section {
     display: flex; /* Use flexbox for layout */
@@ -322,5 +365,704 @@ h1, h2, p {
 
 .text-box {
     flex: 1; /* Allow the text box to take remaining space */
+}
+
+/* Search Bar Styling */
+#search-bar {
+    padding: 10px;
+    background-color: #D1D6BE;
+    border: 1.5px solid #D1D6BE;
+    border-radius: 5px;
+    width: 350px;
+    margin: 20px auto;
+}
+
+#search-bar form {
+    display: flex;
+    gap: 10px;
+}
+
+#search-bar input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #575757;
+}
+
+#search-bar input::placeholder {
+    color: #b0b0b0;
+}
+
+#search-bar button {
+    padding: 8px 16px;
+    background-color: #D1D6BE;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#search-bar button:hover {
+    background-color: #7A5750;
+}
+
+/* Full height container to hold the parallax background */
+.parallax-container {
+    position: relative;
+    height: 100%;
+    background-color: #ffffff50;  /* Fallback background color */
+}
+
+/* Parallax background image */
+.parallax-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/webbackground.jpg') no-repeat center center fixed;  /* Replace with your image path */
+    background-size: cover;
+    z-index: -1; /* Put the background behind the content */
+    transform: translateZ(0); /* Ensure smooth scrolling */
+    will-change: transform;
+}
+
+/* 50% color overlay on top of the background */
+.parallax-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* 20% black overlay, you can change the color */
+    z-index: -1; /* Overlay should be above the background */
+}
+
+.content {
+    display: block; /* No need for flexbox */
+    text-align: center; /* Centers inline elements like images */
+}
+.placeholder {
+    margin: 0 auto;
+}
+
+/* Parent Content Container */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Text Content Section */
+.content-section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    text-align: center;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Overlay for Hover Effect */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* 50% opacity black overlay */
+    opacity: 0; /* Initially hidden */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-text {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Hover Effect */
+.placeholder:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.placeholder:hover img {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Enlarge Image on Click */
+.placeholder.clicked img {
+    transform: scale(2); /* Enlarge image */
+    transition: transform 0.5s ease; /* Smooth scaling */
+    z-index: 10; /* Ensure it's above other content */
+}
+
+.placeholder.clicked .overlay {
+    display: none; /* Hide overlay when clicked */
+}
+
+/* Center the text container when image is clicked */
+.placeholder.clicked .overlay-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    color: #7A5750; /* Use your brown color */
+}
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Ensure it's on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dim the background */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Modal Image */
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; /* Smooth zoom effect when expanding */
+}
+
+/* Modal Text */
+.modal-text {
+    font-size: 20px;
+    color: white;
+    margin-top: 20px;
+}
+
+/* Close Button */
+.close {
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+/* Gallery Layout */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    justify-items: center;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+/* Image Containers */
+.placeholder {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    cursor: pointer;
+}
+
+/* Image Styles */
+.placeholder img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+/* Overlay for Hover Effect */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* 50% opacity white overlay */
+    opacity: 0; /* Initially hidden */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-text {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Hover Effect */
+.placeholder:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.placeholder:hover img {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Ensure it's on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dim the background */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Modal Content Container: Image and Text */
+.modal-content-container {
+    display: flex; /* Align image and text side by side */
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 1000px; /* Max width for modal */
+    width: 80%;
+}
+
+/* Modal Image */
+.modal-content {
+    max-width: 60%; /* Image takes up 60% of modal */
+    max-height: 80%;
+    border-radius: 8px;
+    margin-right: 20px; /* Space between image and text */
+}
+
+/* Modal Text */
+.modal-text {
+    font-size: 20px;
+    color: #7A5750; /* Brown text */
+    line-height: 1.5;
+    max-width: 100%; /* Text container takes up 30% of modal */
+}
+
+/* Close Button */
+.close {
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+/* Gallery Layout */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    justify-items: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin-top: 20px;
+}
+
+/* Image Containers */
+.placeholder {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    cursor: pointer;
+}
+
+/* Image Styles */
+.placeholder img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+/* Overlay for Hover Effect */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 50% opacity black overlay */
+    opacity: 0; /* Initially hidden */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-text {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Hover Effect */
+.placeholder:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.placeholder:hover img {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Mobile Phones (less than 768px) */
+@media screen and (max-width: 768px) {
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    .logo {
+        max-width: 60px;
+    }
+
+    /* About and Contact Section Layout */
+    .about-section, .contact-section {
+        display: flex;
+        flex-direction: column; /* Stack content */
+        align-items: center;
+        max-width: 95%;
+        margin: 15px auto;
+        padding: 15px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-image, .contact-image {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    .about-content, .contact-content {
+        text-align: left;
+        width: 100%;
+    }
+
+    /* Form Adjustments */
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .contact-form button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .modal-content-container {
+        padding: 15px;
+    }
+
+    .content-section {
+        padding: 15px;
+    }
+}
+
+/* Small Phones (less than 480px) */
+@media screen and (max-width: 480px) {
+
+    .hamburger {
+        font-size: 24px;
+    }
+
+    .side-nav {
+        width: 75%; /* Full width on small devices */
+    }
+
+    .gallery {
+        grid-template-columns: 1fr; /* Single-column view */
+    }
+
+    /* About and Contact Section */
+    .about-section, .contact-section {
+        max-width: 95%;
+        margin: 10px auto;
+        padding: 10px;
+    }
+
+    .about-content, .contact-content {
+        font-size: 14px;
+    }
+
+    .about-image, .contact-image {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    /* Form Adjustments */
+    .contact-form input,
+    .contact-form textarea {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .contact-form button {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .modal-content {
+        width: 75%;
+        max-width: 250px;
+    }
+
+    .modal-text, .modal-description {
+        font-size: 14px;
+    }
+}
+
+/* Simple Button Styling */
+.video-button {
+    display: inline-block;
+    background-color: #7A5750;  /* Custom color */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.video-button:hover {
+    background-color: var(--pink); /* Hover effect */
+}
+
+/* Position the Status Section */
+.status-section {
+    position: fixed;
+    top: 100px; /* Adjust as needed */
+    right: 20px; /* Distance from the right edge */
+    width: 250px; /* Adjust width */
+    background: #FAF5ED80;
+    border: 3px solid #FAF5ED;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Style the Status Bars */
+.status-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Status Indicator Circles */
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+    animation: pulse 2s infinite;
+}
+
+/* Green for "Open" Status */
+.status-indicator.open {
+    background-color: #4caf50;
+}
+
+/* Red for "Busy" Status */
+.status-indicator.busy {
+    background-color: #f44336;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Social Media Buttons */
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-media a {
+    font-size: 24px; /* Icon size */
+    color: #7A5750; /* Default icon color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #FAF5ED; /* Lighter color on hover */
+}
+
+/* Divider */
+.status-divider {
+    margin: 20px 0;
+    border-top: 2px solid #FAF5ED;
+}
+
+/* Specific Styling for Itch.io Icon */
+.itchio-icon {
+    width: 24px;
+    height: 24px;
+    fill: #7A5750; /* Default color */
+    transition: fill 0.3s ease;
+}
+
+.social-media a:hover .itchio-icon {
+    fill: #FAF5ED; /* Lighter color on hover */
+}
+
+/* Navigation Footer */
+.nav-footer {
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 12px;
+    background: #D1D6BE; /* Matches the navigation menu's background */
+    border-top: 1px solid #ddd; /* Subtle border for separation */
+}
+
+.nav-footer a {
+    text-decoration: none;
+    color: #7A5750; /* Default text color */
+    transition: color 0.3s ease;
+}
+
+.nav-footer a:hover {
+    background: #D1D6BE; /* Matches the navigation menu's background */
+    color: #7A5750; /* Darker color on hover */
+}
+
+.nav-footer p {
+    margin: 0; /* Remove default paragraph margin */
+    font-size: 14px; /* Adjust font size for readability */
+    line-height: 1.5; /* Improve spacing */
+}
+
+/* Shared Button Styles for Modal */
+.modal-button {
+    display: inline-block;
+    background-color: #7A5750;  /* Custom color */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-button:hover {
+    background-color: #7A5750; /* Darker blue on hover */
+}
+
+.large-logo {
+    display: block;       /* Ensures it starts on a new line */
+    margin: 20px auto;    /* Centers the logo horizontally and adds spacing */
+    max-width: 250px;     /* Adjust width as needed to enlarge */
+    height: auto;         /* Keeps the aspect ratio */
+}
+
+/* H1 - Azo Sans Medium Italic */
+#contact h1,
+#about h1 
+#home h1,
+#portfolio h1 {
+    font-family: 'Azo Sans', sans-serif;
+    font-weight: 500;
+    font-style: italic; /* Applies the italic variant */
+}
+
+/* Ensure your @font-face rules for Azo Sans Medium Italic and Roboto are already defined or linked */
+
+/* Body text uses Roboto */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Navigation links use Azo Sans Medium Italic */
+#mySidenav a,
+nav a,
+.side-nav a {
+    font-family: 'Azo Sans', sans-serif;
+    font-weight: 500; /* Medium weight */
+    font-style: italic; /* Italic style */
+}
+
+/* Navigation links, search bar text, and inputs use Azo Sans Medium Italic */
+#mySidenav a,
+nav a,
+.side-nav a,
+#search-bar input,
+#search-bar button {
+    font-family: 'Azo Sans', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Body text still uses Roboto */
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
