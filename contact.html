@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Emma Jelavic Art | Contact</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
-
+    <div class="parallax-container">
     <header>
         <span class="hamburger" onclick="openNav()">☰</span>
+        <img src="images/personallogo.png" alt="Personal Logo" class="logo">
         <h1>Contact</h1>
     </header>
 
@@ -20,10 +26,47 @@
         <a href="about.html">About Me</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="contact.html">Contact</a>
+
+        <div id="search-bar">
+            <form id="searchForm">
+                <input type="text" name="q" placeholder="Search for a page..." aria-label="Search" required />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <footer class="nav-footer">
+            <a href="https://stock.adobe.com/ca/images/Tranquil-Silesian-landscape-with-flower-covered-hills-and-a-blue-sky-%3A-Tranqui/609964976" target="_blank" aria-label="Background Image provided by Adobe">
+                <p>Background Image provided by Adobe ♡</p>
+            </a>
+        </footer>
+
+    </div>
+
+    <!-- Status Section -->
+    <div class="status-section">
         <h2>Status</h2>
-        <div class="status-bar">Commissions: Open</div>
-        <div class="status-bar busy">Currently: VERY Busy</div>
-        <div class="status-bar">Inquiries: Open</div>
+        <div class="status-bar">
+            <span class="status-indicator open"></span> Commissions: Open
+        </div>
+        <div class="status-bar">
+            <span class="status-indicator busy"></span> Currently: VERY Busy
+        </div>
+        <div class="status-bar">
+            <span class="status-indicator open"></span> Inquiries: Open
+        </div>
+        <div class="status-divider"></div>
+
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/emma-jelavic/" target="_blank" aria-label="LinkedIn">
+                <i class="fa fa-linkedin-square"></i>
+            </a>
+            <a href="https://emmajelavic.itch.io/" target="_blank" aria-label="Itch.io">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="itchio-icon">
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3.5h-.52c-.42 0-.8.22-1.02.57L13.1 8.38a1.2 1.2 0 0 1-1.03.57H3.93a1.2 1.2 0 0 1-1.02-.57L.52 6.07A1.2 1.2 0 0 0 .52 6H0V2zm0 4.9l1.92 2.3A2.5 2.5 0 0 0 3.93 9.5h8.15a2.5 2.5 0 0 0 2-1.03L16 6.9V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6.9z"/>
+                </svg>
+            </a>
+        </div>
+
     </div>
 
     <div class="content">
@@ -60,6 +103,8 @@
         © Emma Jelavic 2024
     </footer>
 
+    <script src="script.js"></script>
+
     <script>
         /* Function to open the side navigation */
         function openNav() {
@@ -70,6 +115,33 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
+
+        // Handle the search form submission
+        document.getElementById("searchForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting and changing the URL
+
+            // Get the query input
+            const query = new FormData(event.target).get("q").toLowerCase();
+
+            // Define the pages for search
+            const pages = [
+                { title: "home", url: "index.html" },
+                { title: "about", url: "about.html" },
+                { title: "portfolio", url: "portfolio.html" },
+                { title: "contact", url: "contact.html" }
+            ];
+
+            // Find the page based on the query
+            const result = pages.find(page => page.title === query);
+
+            if (result) {
+                // If a match is found, redirect to the page
+                window.location.href = result.url;
+            } else {
+                // If no match is found, alert the user
+                alert("Page not found. Please check your input.");
+            }
+        });
     </script>
 
 </body>
