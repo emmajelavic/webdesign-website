@@ -12,11 +12,30 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Azo Sans Regular', Arial, sans-serif;
-            background-color: #FAF5ED;
-            color: #7A5750;
-        }
+        @font-face {
+    font-family: 'Azo Sans';
+    src: url('fonts/AzoSans-Regular.woff2') format('woff2'),
+         url('fonts/AzoSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Azo Sans';
+    src: url('fonts/AzoSans-Medium.woff2') format('woff2'),
+         url('fonts/AzoSans-Medium.woff') format('woff');
+    font-weight: 500; /* or whatever the medium weight is */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Azo Sans';
+    src: url('fonts/AzoSans-MediumItalic.woff2') format('woff2'),
+         url('fonts/AzoSans-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
 
         /* Color Palette */
         :root {
@@ -109,6 +128,6 @@
             color: var(--brown);
             font-size: 14px;
         }
-
     </style>
 </head>
+
